@@ -1,50 +1,50 @@
-# Loop · AI 学习闭环
+# Loop · AI Learning Loop
 
-基于 Expo Router + React Native + TypeScript 的多端应用。当前仓库处于初始化阶段，核心目标是实现“错题记录 → 弱点分析 → 个性化复习”的学习闭环。
+A cross-platform application based on Expo Router + React Native + TypeScript. The repository is currently in the initialization phase, with the core goal of implementing a learning loop of "Error Recording → Weakness Analysis → Personalized Review".
 
-## 快速开始
+## Quick Start
 
-1. 安装依赖（需 Node.js 18+）：
+1. Install dependencies (Node.js 18+ required):
    ```bash
    npm install
    ```
-2. 启动 Expo 开发服务器：
+2. Start the Expo development server:
    ```bash
    npm run start
    ```
-3. 使用 Expo Go、iOS/Android 模拟器或 Web 浏览器预览应用。
+3. Preview the app using Expo Go, iOS/Android simulators, or a web browser.
 
-> 由于当前环境无法联网安装依赖，以上命令需在本地拥有可用网络时执行。
+> Since dependencies cannot be installed in the current environment without internet, execute the above commands locally with an active internet connection.
 
-## 环境变量
+## Environment Variables
 
-在根目录创建 `.env` 文件（或通过 shell 注入），提供 Supabase 连接信息：
+Create a `.env` file in the root directory (or inject via shell) to provide Supabase connection details:
 
 ```
 EXPO_PUBLIC_SUPABASE_URL=your-project-url
 EXPO_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
 ```
 
-## 路线图
+## Roadmap
 
-- [x] 初始化 Expo Router 项目结构
-- [x] 构建共享主题/状态层
-- [x] 完成“错题记录” MVP（本地存储版）
-- [ ] 接入 Supabase 实现云端同步
-- [ ] 引入弱点分析与复习任务推荐
+- [x] Initialize Expo Router project structure
+- [x] Build shared theme/state layer
+- [x] Complete "Error Recording" MVP (Local Storage version)
+- [ ] Integrate Supabase for cloud synchronization
+- [ ] Introduce weakness analysis and review task recommendations
 
-## 目录结构
+## Directory Structure
 
 ```
-app/                # Expo Router 路由页面
-src/                # 业务逻辑、组件、hooks 等
+app/                # Expo Router pages
+src/                # Business logic, components, hooks, etc.
 ```
 
-## 错题记录 MVP
+## Error Recording MVP
 
-1. 进入 `记录错题` 页面（首页按钮或 `http://localhost:8081/records/new`）。  
-2. 填写学科、知识点、题干、答案、原因等信息。  
-3. 点击“保存错题”后，记录会存入本地 `AsyncStorage`，并自动计算下一次复习时间（依据难度 1-5 天不等）。  
-4. 在成功提示卡片中可看到最近一次保存的错题条目摘要。
+1. Enter the "Record Error" page (via home button or `http://localhost:8081/records/new`).
+2. Fill in subject, knowledge point, question stem, answer, reason, etc.
+3. After clicking "Save Error", the record will be saved to local `AsyncStorage`, and the next review time will be automatically calculated (1-5 days depending on difficulty).
+4. You can see a summary of the most recently saved error entry in the success prompt card.
 
-> 未来会将这些记录同步到 Supabase，并基于 `nextReviewAt` 推送复习任务。
+> In the future, these records will be synced to Supabase, and review tasks will be pushed based on `nextReviewAt`.
