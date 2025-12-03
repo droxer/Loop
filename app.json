@@ -1,41 +1,59 @@
 {
-  "expo": {
-    "name": "Loop",
-    "slug": "loop",
-    "version": "1.0.0",
-    "scheme": "loop",
-    "orientation": "portrait",
-    "owner": null,
-    "jsEngine": "hermes",
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "experiments": {
-      "typedRoutes": true
-    },
-    "extra": {
-      "eas": {
-        "projectId": "00000000-0000-0000-0000-000000000000"
-      }
-    },
-    "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.droxer.loop"
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
-      },
-      "package": "com.droxer.loop"
-    },
-    "web": {
-      "bundler": "metro",
-      "output": "single",
-      "favicon": "./assets/favicon.png"
-    },
-    "plugins": [
-      "expo-router"
-    ]
-  }
+    "expo": {
+        "name": "Loop",
+        "slug": "loop",
+        "version": "1.0.0",
+        "scheme": "loop",
+        "orientation": "portrait",
+        "owner": null,
+        "jsEngine": "hermes",
+        "assetBundlePatterns": [
+            "**/*"
+        ],
+        "splash": {
+            "image": "./assets/splash.png",
+            "resizeMode": "contain",
+            "backgroundColor": "#ffffff"
+        },
+        "experiments": {
+            "typedRoutes": true
+        },
+        "extra": {
+            "eas": {
+                "projectId": "00000000-0000-0000-0000-000000000000"
+            }
+        },
+        "ios": {
+            "supportsTablet": true,
+            "bundleIdentifier": "com.droxer.loop",
+            "infoPlist": {
+                "NSCameraUsageDescription": "允许 Loop 访问相机以拍摄错题。",
+                "NSPhotoLibraryUsageDescription": "允许 Loop 访问相册以选择错题图片。",
+                "NSMicrophoneUsageDescription": "Loop 不需要访问麦克风。"
+            }
+        },
+        "android": {
+            "package": "com.droxer.loop"
+        },
+        "web": {
+            "bundler": "metro",
+            "output": "single"
+        },
+        "plugins": [
+            "expo-router",
+            "expo-web-browser",
+            [
+                "expo-camera",
+                {
+                    "cameraPermission": "允许 Loop 访问相机以拍摄错题。"
+                }
+            ],
+            [
+                "expo-image-picker",
+                {
+                    "photosPermission": "允许 Loop 访问相册以选择错题图片。"
+                }
+            ]
+        ]
+    }
 }

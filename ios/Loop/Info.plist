@@ -45,6 +45,12 @@
       <key>NSAllowsLocalNetworking</key>
       <true/>
     </dict>
+    <key>NSCameraUsageDescription</key>
+    <string>允许 Loop 访问相机以拍摄错题。</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>Loop 不需要访问麦克风。</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>允许 Loop 访问相册以选择错题图片。</string>
     <key>NSUserActivityTypes</key>
     <array>
       <string>$(PRODUCT_BUNDLE_IDENTIFIER).expo.index_route</string>

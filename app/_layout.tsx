@@ -4,26 +4,29 @@ import { useEffect } from 'react';
 import { Platform } from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';
 import { AppThemeProvider } from '../src/providers/ThemeProvider';
+import { AuthProvider } from '../src/providers/AuthProvider';
 
 SplashScreen.preventAutoHideAsync().catch(() => {
-  /* splash already hidden */
+    /* splash already hidden */
 });
 
 export default function RootLayout() {
-  useEffect(() => {
-    SplashScreen.hideAsync().catch(() => {
-      /* noop */
-    });
-  }, []);
+    useEffect(() => {
+        SplashScreen.hideAsync().catch(() => {
+            /* noop */
+        });
+    }, []);
 
-  return (
-    <AppThemeProvider>
-      <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
-      <Stack
-        screenOptions={{
-          headerShown: false
-        }}
-      />
-    </AppThemeProvider>
-  );
+    return (
+        <AppThemeProvider>
+            <AuthProvider>
+                <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
+                <Stack
+                    screenOptions={{
+                        headerShown: false
+                    }}
+                />
+            </AuthProvider>
+        </AppThemeProvider>
+    );
 }
